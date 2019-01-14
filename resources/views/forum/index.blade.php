@@ -4,7 +4,7 @@
 <div class="jumbotron">
       <div class="container">
         <h2>Hello, Laravel!   
-            <a class="btn btn-primary btn-lg pull-right" href="#" role="button">发布新帖子 »</a>
+            <a class="btn btn-primary btn-lg pull-right" href="/discussions/create" role="button">发布新帖子 »</a>
             </h2>
       </div>
 </div>

@@ -14,16 +14,14 @@
              {{$discussion->user->name}}
            </div>
          </div>
-        <h2>Hello, Laravel!   
-            <a class="btn btn-primary btn-lg pull-right" href="#" role="button">修改帖子</a>
-            </h2>
+          <a class="btn btn-primary btn-lg pull-right" href="#" role="button">修改帖子</a>
       </div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-9" role="main">
-    
+      {!! $html !!}
     </div>
   </div>
 </div>

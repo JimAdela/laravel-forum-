@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-// use Naux\Mail\SendCloudTemplate;
-// use Mail;
 use App\Http\Requests\UserRegisterRequest;
 
 class UserController extends Controller
@@ -70,6 +68,24 @@ class UserController extends Controller
         return redirect('user/login');
     }
 
+    public function login()
+    {
+        return view('users.login');
+    }
+
+    public function signin(Requests\UserLoginRequest $request)
+    {
+        if (\Auth::attempt([
+            'email'=>$request->get('email'),
+            'password'=> $request->get('password'),
+            'is_confirmed'=> 1
+        ])) {
+            return redirect('/');
+        }
+        \Session::flash('user_login_failed', '密码不正确或邮箱没验证');
+        return redirect('/user/login')->withInput();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -120,5 +136,11 @@ class UserController extends Controller
         \Mail::queue($view, $data, function ($message) use ($user, $subject) {
             $message->to($user->email)->subject($subject);
         });
+    }
+
+    public function logout()
+    {
+        \Auth::logout();
+        return redirect('/');
     }
 }
