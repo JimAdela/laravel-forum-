@@ -4,7 +4,7 @@
 <div class="jumbotron">
       <div class="container">
         <h2>Hello, Laravel!   
-            <a class="btn btn-primary btn-lg pull-right" href="/discussions/create" role="button">发布新帖子 »</a>
+            <a class="btn btn-danger btn-lg pull-right" href="/discussions/create" role="button">发布新帖子 </a>
             </h2>
       </div>
 </div>
@@ -20,7 +20,16 @@
              </a>
            </div>
            <div class="media-body">
-             <h4 class="media-heading">{{ $discussion->title}}</h4>
+             <h4 class="media-heading">
+               <a class="" href="/discussions/{{$discussion->id}}" role="">{{ $discussion->title}}</a>
+              </h4>
+              <div class="media-conversation-meta pull-right
+              ">
+                <sapn class="media-conversation-replies">
+                  <a href="/discussion/154#reply">{{ count($discussion->comments) }}</a>
+                  回复
+                </sapn>
+              </div>
              {{$discussion->user->name}}
            </div>
          </div>

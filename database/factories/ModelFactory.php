@@ -32,3 +32,13 @@ $factory->define(App\Discussion::class, function (Faker\Generator $faker) {
         'last_user_id' =>$faker->randomElement($user_id),
     ];
 });
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    $user_ids = \App\User::lists('id')->toArray();
+    $discussion_ids = \App\Discussion::lists('id')->toArray();
+    return [
+        'body' => $faker->paragraph,
+        'user_id' => $faker->randomElement($user_ids),
+        'discussion_id' => $faker->randomElement($discussion_ids),
+    ];
+});
