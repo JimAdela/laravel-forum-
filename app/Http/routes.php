@@ -19,8 +19,11 @@ Route::resource('comment', 'CommentsController');
 
 Route::get('/user/register', 'UserController@register');
 Route::get('/user/login', 'UserController@login');
+Route::get('/user/avatar', 'UserController@avatar');
 Route::post('/user/login', 'UserController@signin');
 Route::post('/user/register', 'UserController@store');
+Route::post('/avatar', 'UserController@changeAvatar');
+Route::post('/crop/api', 'UserController@cropAvatar');
 
 Route::get('/logout', 'UserController@logout');
 

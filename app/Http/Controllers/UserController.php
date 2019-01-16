@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Requests\UserRegisterRequest;
+use Image;
 
 class UserController extends Controller
 {
@@ -86,6 +87,42 @@ class UserController extends Controller
         return redirect('/user/login')->withInput();
     }
 
+    public function avatar()
+    {
+        return view('users.avatar');
+    }
+
+    public function changeAvatar(Request $request)
+    {
+        $file = $request->file('avatar');
+        $input = array('image'=>$file);
+        $rules = array(
+            'image'=> 'image'
+        );
+        $validator = \Validator::make($input,$rules);
+        if ($validator->fails()) {
+            return \Response::json([
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+            ]);
+        }
+        $destinationPath = 'uploads/';
+        $filename = \Auth::user()->id .'_'.time(). $file->getClientOriginalName();
+        $file->move($destinationPath,$filename);
+        Image::make($destinationPath.$filename)->fit(200)->save();
+       
+        return \Response::json([
+            'success'=>true,
+            'avatar'=> asset($destinationPath.$filename)
+        ]);
+    }
+
+    public function cropAvatar(Request $request)
+    {
+        dd($request->all());
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -94,7 +131,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**

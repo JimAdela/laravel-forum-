@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.bootcss.com/jquery-jcrop/2.0.4/css/Jcrop.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-jcrop/2.0.4/js/Jcrop.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js//jquery.form.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -30,7 +35,7 @@
               <li class="dropdown">
                 <a aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle" role="button" href="#" id="dLable">{{Auth::user()->name }}</a>
                 <ul class="dropdown-menu" aria-labelledby="dLable">
-                  <li><a href="#"><i class="fa fa-user"></i> 更换头像</a></li>
+                  <li><a href="/user/avatar"><i class="fa fa-user"></i> 更换头像</a></li>
                   <li><a href="#"><i class="fa fa-cog"></i> 更换密码</a></li>
                   <li><a href="#"><i class="fa fa-heart"></i> 特别感谢</a></li>
                   <li role="separator" class="divider"></li>
@@ -47,7 +52,6 @@
       </div>
     </nav>
     @yield('content')
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    
 </body>
 </html>
