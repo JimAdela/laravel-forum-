@@ -23,16 +23,17 @@
              <h4 class="media-heading">
                <a class="" href="/discussions/{{$discussion->id}}" role="">{{ $discussion->title}}</a>
               </h4>
-              <div class="media-conversation-meta pull-right
-              ">
-                <sapn class="media-conversation-replies">
-                  <a href="/discussion/154#reply">{{ count($discussion->comments) }}</a>
-                  回复
-                </sapn>
-              </div>
+            
              {{$discussion->user->name}}
            </div>
          </div>
+           <div class="media-conversation-meta pull-right
+              " style="margin-top:-46px">
+                <sapn class="media-conversation-replies">
+                  <a href="#">{{ count($discussion->comments) }}</a>
+                  回复
+                </sapn>
+              </div>
      @endforeach
     </div>
   </div>

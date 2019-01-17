@@ -1,8 +1,9 @@
 @extends('app')
 @section('content')
+@include('editor::head')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2" role="main">
+            <div class="col-md-10 col-md-offset-2" role="main">
             {!! Form::open(['url'=>'/discussions']) !!}
                     @include('forum.form')
                     <div>

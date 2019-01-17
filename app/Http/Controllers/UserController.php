@@ -109,17 +109,30 @@ class UserController extends Controller
         $destinationPath = 'uploads/';
         $filename = \Auth::user()->id .'_'.time(). $file->getClientOriginalName();
         $file->move($destinationPath,$filename);
-        Image::make($destinationPath.$filename)->fit(200)->save();
+        Image::make($destinationPath.$filename)->fit(400)->save();
        
         return \Response::json([
             'success'=>true,
-            'avatar'=> asset($destinationPath.$filename)
+            'avatar'=> '/'.$destinationPath.$filename
         ]);
     }
 
     public function cropAvatar(Request $request)
     {
-        dd($request->all());
+        $photo = mb_substr($request->get('photo'),1);
+        $width = (int)$request->get('w');
+        $height = (int)$request->get('h');
+        $xAlign = (int)$request->get('x');
+        $yAlign = (int)$request->get('y');
+
+        Image::make($photo)->crop($width,$height,$xAlign,$yAlign)->save();
+
+        $user = \Auth::user();
+        $user->avatar = $request->get('photo');
+        $user->save();
+
+        return redirect('user/avatar');
+
 
     }
 

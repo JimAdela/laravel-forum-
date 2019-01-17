@@ -25,6 +25,8 @@ Route::post('/user/register', 'UserController@store');
 Route::post('/avatar', 'UserController@changeAvatar');
 Route::post('/crop/api', 'UserController@cropAvatar');
 
+Route::post('/post/upload', 'PostController@upload');
+
 Route::get('/logout', 'UserController@logout');
 
 Route::get('/verify/{confirm_code}', 'UserController@confirmEmail');

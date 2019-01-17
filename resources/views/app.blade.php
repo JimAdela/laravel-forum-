@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/bootstrap.css">
+    {{-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdn.bootcss.com/jquery-jcrop/2.0.4/css/Jcrop.css" rel="stylesheet">
+    <link href="/css/jquery.Jcrop.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-jcrop/2.0.4/js/Jcrop.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js//jquery.form.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.js"></script>
+    {{-- <script src="/js/bootstrap.min.js"></script> --}}
+    <script src="/js/jquery.form.js"></script>
+    <script src="/js/jquery.Jcrop.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <meta id="token" name="token" value="{{csrf_token()}}">
     <title>Document</title>
 </head>
 <body>

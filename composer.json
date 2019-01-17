@@ -10,7 +10,8 @@
         "illuminate/html": "^5.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "naux/sendcloud": "^1.1",
-        "intervention/image": "^2.4"
+        "intervention/image": "^2.4",
+        "yuanchao/laravel-5-markdown-editor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

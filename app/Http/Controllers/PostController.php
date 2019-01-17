@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Discussion;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Markdown\Markdown;
+use EndaEditor;
 
 class PostController extends Controller
 {
@@ -98,6 +99,13 @@ class PostController extends Controller
         $discussion = Discussion::findOrFail($id);
         $discussion->update($request->all());
         return redirect()->action('PostController@show', ['id'=>$discussion->id]);
+    }
+
+    public function upload()
+    {
+        $data = EndaEditor::uploadImgFile('uploads');
+
+        return json_encode($data);  
     }
 
     /**
