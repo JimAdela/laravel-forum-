@@ -63,7 +63,7 @@ class UserController extends Controller
             return redirect('/');
         }
         $user->is_confirm_code = 1;
-        $user->coinfirm_code - str_random(48);
+        $user->coinfirm_code = str_random(48);
         $user->save();
 
         return redirect('user/login');

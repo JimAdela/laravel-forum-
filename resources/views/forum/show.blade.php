@@ -73,7 +73,7 @@
         <a href="/user/login" class="btn btn-block btn-success">登陆参与评论</a>
   @endif
 </div>
-
+{{-- 
 <script>
   Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
   new Vue({
@@ -110,5 +110,5 @@
   })
 
 </script>
-   
+    --}}
 @stop
